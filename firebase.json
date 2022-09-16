@@ -1,10 +1,42 @@
-{
+{   
+  "hosting": {
+      "appAssociation": "AUTO",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "headers": [
+        {
+          "source": "**/*.@(js|html)",
+          "destination": "/",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0"
+            }
+          ]
+        }
+      ],
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "function": "app"
+        }
+      ]
+    },
   "functions": {
     "ignore": [
       "node_modules",
       ".git",
       "firebase-debug.log",
       "firebase-debug.*.log"
-    ]
+    ],
+    "source": "functions"
   }
 }
