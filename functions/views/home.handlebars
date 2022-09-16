@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Open Source Email MD5 hash list</title>
+</head>
+<body>
+	<h1>Open Source Email MD5 hash list</h1>
+    <!-- Uses built-in `if` helper. -->
+    <h5>MD5 hash the following list of plain text emails to md5</h5>
+    <form action="?" method="POST">
+    <!-- Calls `foo` helper, overridden at render-level. -->
+    <textarea style="width: 450px;height: 250px" id="input" name="input"></textarea>
+    <br />
+    <br />
+    <button type="submit">Conver to MD5</button>
+	<br />
+    <br />
+    <!-- Calls `bar` helper, defined at instance-level. -->
+    <textarea style="width: 450px;height: 250px" id="output" name="output" disabled>{{{result}}}</textarea>
+
+
+
+    <br />
+    <br />
+    Author: <a href="https://github.com/nyceane">Peter Ma</a>
+    <br />
+    Source Code: <a href="https://github.com/SiteManaApp/hashlist">Link</a>
+</body>
+</html>
