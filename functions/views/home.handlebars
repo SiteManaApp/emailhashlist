@@ -3,6 +3,31 @@
 <head>
     <meta charset="utf-8">
     <title>Open Source Email MD5 hash list</title>
+    <label>Note: performance wise, please try to do under 100,000 lines at a time, file upload version will be here soon</label>
+
+    <script type="text/javascript">
+	    function saveTextAsFile(textToWrite, fileNameToSaveAs) {
+		    var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'}); 
+		    var downloadLink = document.createElement("a");
+		    downloadLink.download = fileNameToSaveAs;
+		    downloadLink.innerHTML = "Download File";
+		    if (window.webkitURL != null) {
+		    // Chrome allows the link to be clicked
+		    // without actually adding it to the DOM.
+		    downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+		    }
+		    else {
+		    // Firefox requires the link to be added to the DOM
+		    // before it can be clicked.
+		    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+		    downloadLink.onclick = destroyClickedElement;
+		    downloadLink.style.display = "none";
+		    document.body.appendChild(downloadLink);
+		    }
+		    
+		    downloadLink.click();
+		}
+	</script>
 </head>
 <body>
 	<h1>Open Source Email MD5 hash list</h1>
@@ -18,6 +43,8 @@
     <br />
     <!-- Calls `bar` helper, defined at instance-level. -->
     <textarea style="width: 450px;height: 250px" id="output" name="output" disabled>{{{result}}}</textarea>
+    <br />
+	<button onclick="saveTextAsFile(output.value,'download.txt')">Download</button>
 
 
 
